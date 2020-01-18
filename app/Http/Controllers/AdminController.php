@@ -10,14 +10,6 @@ class AdminController extends Controller
         return view('admin.mainPage');
     }
 
-    public function showArticlesPage() {
-        return view('admin.articles');
-    }
-
-    public function showCategoriesPage() {
-        return view('admin.categories');
-    }
-
     public function showCommentsPage() {
         return view('admin.comments');
     }

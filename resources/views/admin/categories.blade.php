@@ -3,5 +3,10 @@
 @section('title','Categories')
 
 @section('content')
-<h1>All Categories</h1>
+<div class="col">
+    <h1>Все категории</h1>
+    <div class="tools">
+        <a href="<?php echo route('showCreateCategory')?>" class="btn btn-success" role="button">Создать</a>
+    </div>
+</div>
 @endsection
