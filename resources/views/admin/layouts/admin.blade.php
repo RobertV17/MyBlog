@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo asset('css/bootstrap/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo asset('css/admin/main.css')?>">
+    @stack('css')
     <title>@yield('title')</title>
 </head>
 <body>
@@ -32,4 +33,5 @@
 
 <script src="<?php echo asset('js/jquery.js')?>"></script>
 <script src="<?php echo asset('js/bootstrap.min.js')?>"></script>
+@stack('js')
 </html>

@@ -5,6 +5,16 @@
 @section('content')
 <div class="col">
     <h1>Создание статьи</h1>
+    
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form method="POST" action="<?php echo route('createArticle');?>">
         @csrf
@@ -14,22 +24,33 @@
         </div>
 
         <div class="form-group">
+            <label for="desc">Краткое описание</label>
+            <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+        </div>
+
+        <div class="form-group">
             <label for="cats">Категория</label>
             <select class="form-control" id="cats" name="cat_id">
                 @foreach ($categories as $c)
                     <option value="{{ $c->id }}">{{ $c->title }}</option>      
                 @endforeach
             </select>
-          </div>
+        </div>
 
         <div class="form-group">
             <label for="content">Творите</label>
-            <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+            <textarea class="form-control" id="contentArea" name="content"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Создать</button>
         </div>
       </form>
 </div>
-
 @endsection
+
+@push('js')
+    <script src="<?php echo asset('js/CKEeditor/ckeditor.js')?>"></script>
+    <script>
+        CKEDITOR.replace( 'contentArea' );
+    </script>
+@endpush
