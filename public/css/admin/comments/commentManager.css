@@ -1,0 +1,16 @@
+#commentManagerContent {
+    text-align: left !important;
+}
+
+#commentManagerContent h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+tr td:last-child {
+    text-align: center;
+}
+
+tr th:last-child {
+    text-align: center;
+}

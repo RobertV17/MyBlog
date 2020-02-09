@@ -1,3 +1,9 @@
+<?php 
+use App\Models\Author;
+
+$author = Author::find(1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +19,13 @@
     <nav class="menu" tabindex="0">
         <div class="smartphone-menu-trigger"></div>
     <header class="avatar">
-            <img src="<?php echo asset('img/admin.jpeg')?>" />
-        <h2>John D.</h2>
+            <img src="{{ asset('storage/'.$author->avatar_path)}}" width="100" height="100" />
+            <h4>{{ $author->name }}</h4>
     </header>
         <ul>
         <li tabindex="0" class="icon-dashboard"><a href='<?php echo route('allArticles')?>'><span>Статьи</span></a></li>
         <li tabindex="0" class="icon-customers"><a href='<?php echo route('allCategories')?>'><span>Категории</span></a></li>
-        <li tabindex="0" class="icon-users"><a href='<?php echo route('allComments')?>'><span>Комментарии</span></a></li>
+        <li tabindex="0" class="icon-users"><a href='<?php echo route('commentManager')?>'><span>Комментарии</span></a></li>
         <li tabindex="0" class="icon-settings"><a href='<?php echo route('authorInfo')?>'><span>Автор</span></a></li>
     </ul>
     </nav>

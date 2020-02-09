@@ -2,8 +2,12 @@
 
 @section('title','Редактирование статьи')
 
+@push('css')
+    <link rel="stylesheet" href="<?php echo asset('css/admin/articles/createArticle.css')?>">
+@endpush
+
 @section('content')
-<div class="col">
+<div class="col" id="updateArticleContent">
     <h1>Редактирование статьи</h1>
     
     @if ($errors->any())
@@ -44,7 +48,7 @@
         <textarea class="form-control" id="contentArea" name="content">{{$article['text']}}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Обновить</button>
+        <button type="submit" class="btn btn-outline-primary">Обновить</button>
         </div>
       </form>
 </div>

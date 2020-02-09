@@ -18,6 +18,7 @@ class CreateAuthorTable extends Migration
             $table->timestamps();
             $table->string('name',100);
             $table->text('info');
+            $table->string('avatar_path', 255)->nullable();
         });
     }
 

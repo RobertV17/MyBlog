@@ -1,0 +1,21 @@
+#allArticlesContent {
+    text-align: left !important;
+}
+
+#allArticlesContent h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tools {
+    /* border: 1px solid #000; */
+    padding: 5px;
+}
+
+tr td:last-child {
+    text-align: center;
+}
+
+tr th:last-child {
+    text-align: center;
+}

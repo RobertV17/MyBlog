@@ -23,6 +23,17 @@ Route::prefix('admin')->group(function() {
         Route::post('/update', ['as' => 'updateCategory', 'uses' => 'CategoryController@updateCategory']);
     });
 
-    Route::get('/comments',['as' => 'allComments', 'uses' => 'AdminController@showCommentsPage']);
-    Route::get('/author',['as' => 'authorInfo', 'uses' => 'AdminController@showAuthorInfoPage']);
+    // Author
+    Route::prefix('author')->group(function() {
+    Route::get('/',['as' => 'authorInfo', 'uses' => 'AuthorController@showAuthorInfoManager']);
+    Route::get('/update', ['as' => 'showUpdateAuthorInfo', 'uses' => 'AuthorController@showUpdateAuthorInfo']);
+    Route::post('/update', ['as' => 'updateAuthorInfo', 'uses' => 'AuthorController@updateAuthorInfo']);
+    });
+
+    // Comments
+    Route::prefix('comments')->group(function() {
+        Route::get('/', ['as' => 'commentManager', 'uses' => 'CommentController@showCommentManager']);
+        Route::get('/delete/{id}', ['as' => 'deleteComment', 'uses' => 'CommentController@deleteComment']);
+        Route::get('/approval/{id}', ['as' => 'approvalComment', 'uses' => 'CommentController@approvalComment']);
+    });
 });

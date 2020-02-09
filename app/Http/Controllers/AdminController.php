@@ -15,6 +15,7 @@ class AdminController extends Controller
     }
 
     public function showAuthorInfoPage() {
+        
         return view('admin.author');
     }
 }

@@ -2,8 +2,12 @@
 
 @section('title','Создать категорию')
 
+@push('css')
+    <link rel="stylesheet" href="<?php echo asset('css/admin/categories/сreateCategory.css')?>">
+@endpush
+
 @section('content')
-<div class="col">
+<div class="col" id="сreateCategoryContent">
     <h1>Создать категорию</h1>
 
     @if ($errors->any())
@@ -24,7 +28,7 @@
             <small id="emailHelp" class="form-text text-muted">Ограничение 100 символов</small>
         </div>
     
-    <button type="submit" class="btn btn-primary">Создать</button>
+    <button type="submit" class="btn btn-outline-primary">Создать</button>
   </form>
 </div>
 @endsection

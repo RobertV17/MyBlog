@@ -1,9 +1,13 @@
 @extends('admin.layouts.admin')
 
-@section('title','Create Article')
+@section('title','Создание статьи')
+
+@push('css')
+    <link rel="stylesheet" href="<?php echo asset('css/admin/articles/createArticle.css')?>">
+@endpush
 
 @section('content')
-<div class="col">
+<div class="col" id="createArticleContent">
     <h1>Создание статьи</h1>
     
     @if ($errors->any())
@@ -16,7 +20,7 @@
         </div>
     @endif
 
-    <form method="POST" action="<?php echo route('createArticle');?>">
+    <form method="POST" action="{{ route('createArticle') }}">
         @csrf
         <div class="form-group">
           <label for="titleArt">Заголовок</label>
@@ -42,7 +46,7 @@
             <textarea class="form-control" id="contentArea" name="content"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Создать</button>
+        <button type="submit" class="btn btn-outline-primary">Создать</button>
         </div>
       </form>
 </div>

@@ -1,13 +1,15 @@
 @extends('admin.layouts.admin')
 
-@section('title','Admin Panel')
+@section('title','Статьи')
+
+@push('css')
+    <link rel="stylesheet" href="<?php echo asset('css/admin/articles/allArticles.css')?>">
+@endpush
 
 @section('content')
-<div class="col">
-    <h1>Все статьи</h1>
-    <div class="tools">
-        <a href="<?php echo route('showCreateArticle')?>" class="btn btn-success" role="button">Создать</a>
-    </div>
+<div class="col" id="allArticlesContent">
+    <h1>Управление записями</h1>
+    
 
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
@@ -36,14 +38,18 @@
                 <td>{{ $a['category']}}</td>
                 <td>{{ $a['description']}}</td>
                 <td>
-                    <a href="{{ route('showUpdateArticle', ['id'=>$a['id']])}}" class="btn btn-success" role="button">Обновить</a>
-                    <a href="{{ route('deleteArticle', ['id'=>$a['id']])}}" class="btn btn-danger" role="button">Удалить</a>
+                    <a href="{{ route('showUpdateArticle', ['id'=>$a['id']])}}" class="btn  btn-outline-primary" role="button">Обновить</a>
+                    <a href="{{ route('deleteArticle', ['id'=>$a['id']])}}" class="btn  btn-outline-danger" role="button">Удалить</a>
                 </td>
             </tr>
         @endforeach
           
         </tbody>
     </table>
+
+    <div class="tools">
+        <a href="{{ route('showCreateArticle') }}" class="btn  btn-outline-primary" role="button">Написать статью</a>
+    </div>
 
 </div>
 

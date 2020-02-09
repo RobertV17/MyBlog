@@ -2,8 +2,12 @@
 
 @section('title','Обновить категорию')
 
+@push('css')
+    <link rel="stylesheet" href="<?php echo asset('css/admin/categories/updateCategory.css')?>">
+@endpush
+
 @section('content')
-<div class="col">
+<div class="col" id="updateCategoryContent">
     <h1>Обновить категорию</h1>
 
     @if ($errors->any())
@@ -25,7 +29,7 @@
             <small id="emailHelp" class="form-text text-muted">Ограничение 100 символов</small>
         </div>
     
-    <button type="submit" class="btn btn-primary">Обновить</button>
+    <button type="submit" class="btn btn-outline-primary">Обновить</button>
   </form>
 </div>
 @endsection
