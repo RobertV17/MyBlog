@@ -1,7 +1,7 @@
 <?php
 
 Route::prefix('admin')->group(function() {
-    Route::get('/',['as' => 'mainPage', 'uses' => 'AdminController@showMainPage']);
+    Route::get('/',['as' => 'adminPage', 'uses' => 'AdminController@showMainPage']);
 
     // Articles
     Route::prefix('articles')->group(function() {

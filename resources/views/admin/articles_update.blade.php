@@ -2,14 +2,7 @@
 
 @section('title','Редактирование статьи')
 
-@push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/articles/createArticle.css')?>">
-@endpush
-
 @section('content')
-<div class="col" id="updateArticleContent">
-    <h1>Редактирование статьи</h1>
-    
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -51,7 +44,6 @@
         <button type="submit" class="btn btn-outline-primary">Обновить</button>
         </div>
       </form>
-</div>
 @endsection
 
 @push('js')

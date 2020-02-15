@@ -10,7 +10,7 @@ use App\Models\Category;
 class ArticleController extends Controller
 {
     public function showArticlesManager() {
-        $allArticles = Article::all();
+        $allArticles = Article::paginate(8);
 
         foreach($allArticles as $a) {
             $category = Category::find($a['cat_id']);

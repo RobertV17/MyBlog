@@ -12,12 +12,14 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comment')->insert([
-            'art_id' => 1,
-            'author' => 'Nick Will',
-            'email' => 'nicke@gmail.com',
-            'text' => 'Great Article bro!!!',
-            'created_at' => date("Y-m-d H:i:s")
-        ]);
+        for($i=0; $i < 120; $i++){
+            DB::table('comment')->insert([
+                'art_id' => 1,
+                'author' => 'Nick Will',
+                'email' => 'nicke@gmail.com',
+                'text' => 'Great Article bro!!!',
+                'created_at' => date("Y-m-d H:i:s")
+            ]);
+        }
     }
 }

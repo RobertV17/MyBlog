@@ -1,16 +1,12 @@
 @extends('admin.layouts.admin')
 
-@section('title','Статьи')
+@section('title','Менеджер Статей')
 
 @push('css')
     <link rel="stylesheet" href="<?php echo asset('css/admin/articles/allArticles.css')?>">
 @endpush
 
 @section('content')
-<div class="col" id="allArticlesContent">
-    <h1>Управление записями</h1>
-    
-
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
             {{ session('status') }}
@@ -46,11 +42,9 @@
           
         </tbody>
     </table>
+    {{ $arts->links() }}
 
     <div class="tools">
         <a href="{{ route('showCreateArticle') }}" class="btn  btn-outline-primary" role="button">Написать статью</a>
     </div>
-
-</div>
-
 @endsection

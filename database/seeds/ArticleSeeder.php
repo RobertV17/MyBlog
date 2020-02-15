@@ -12,12 +12,14 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('article')->insert([
-            'cat_id' => 1,
-            'title' => 'Title 1',
-            'description' => 'Wow its great art',
-            'text' => 'Wow its great art Wow its great art',
-            'created_at' => date("Y-m-d H:i:s")
-        ]);
+        for($i = 0; $i < 60; $i++) {
+            DB::table('article')->insert([
+                'cat_id' => 1,
+                'title' => 'Title 1',
+                'description' => 'Wow its great art',
+                'text' => 'Wow its great art Wow its great art',
+                'created_at' => date("Y-m-d H:i:s")
+            ]);
+        }
     }
 }

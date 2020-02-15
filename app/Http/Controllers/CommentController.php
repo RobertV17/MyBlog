@@ -8,7 +8,7 @@ use App\Models\Comment;
 class CommentController extends Controller
 {
     public function showCommentManager() {
-        $noModerComments = Comment::where('moderated', 0)->get();
+        $noModerComments = Comment::where('moderated', 0)->paginate(8);
         return view('admin.comments', ['comments' => $noModerComments]);
     }
 

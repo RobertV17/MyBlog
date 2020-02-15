@@ -2,14 +2,7 @@
 
 @section('title','Создать категорию')
 
-@push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/categories/сreateCategory.css')?>">
-@endpush
-
 @section('content')
-<div class="col" id="сreateCategoryContent">
-    <h1>Создать категорию</h1>
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -30,5 +23,4 @@
     
     <button type="submit" class="btn btn-outline-primary">Создать</button>
   </form>
-</div>
 @endsection

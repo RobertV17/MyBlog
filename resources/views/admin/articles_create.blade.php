@@ -2,14 +2,7 @@
 
 @section('title','Создание статьи')
 
-@push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/articles/createArticle.css')?>">
-@endpush
-
 @section('content')
-<div class="col" id="createArticleContent">
-    <h1>Создание статьи</h1>
-    
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -49,7 +42,6 @@
         <button type="submit" class="btn btn-outline-primary">Создать</button>
         </div>
       </form>
-</div>
 @endsection
 
 @push('js')

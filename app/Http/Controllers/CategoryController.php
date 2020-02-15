@@ -9,7 +9,7 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function showCategoriesManager() {
-        $allCategories = Category::all();
+        $allCategories = Category::paginate(8);
         return view('admin.categories', ['cats' => $allCategories]);
     }
 

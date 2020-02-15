@@ -1,19 +1,10 @@
-#AuthorContent {
-    text-align: left !important;
-}
-
-#AuthorContent h1 {
+/* #avatar {
     text-align: center;
-    margin-bottom: 20px;
-}
+} */
 
-#avatar {
-    text-align: center;
-}
-
-#AuthorContent h3 {
-    text-align: center;
-    margin-bottom: 20px;
+ h3 {
+    /* text-align: center; */
+    margin: 20px 0;
 }
 
 #info {

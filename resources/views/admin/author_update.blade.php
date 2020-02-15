@@ -1,11 +1,8 @@
 @extends('admin.layouts.admin')
 
-@section('title','Create Article')
+@section('title','Обновление информации о авторе')
 
 @section('content')
-<div class="col">
-    <h1>Редактирование информации о Авторе</h1>
-    
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -36,7 +33,6 @@
         <button type="submit" class="btn btn-primary">Обновить</button>
         </div>
     </form>
-</div>
 @endsection
 
 @push('js')

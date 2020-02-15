@@ -7,9 +7,6 @@
 @endpush
 
 @section('content')
-<div class="col" id="allCategoriesContent">
-    <h1>Категории</h1>
-
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
             {{ session('status') }}
@@ -28,23 +25,22 @@
           </tr>
         </thead>
         <tbody>
-        @foreach ($cats as $c)
-            <tr>
-                <th scope="row">{{ $c['id']}}</th>
-                <td>{{ $c['title']}}</td>
-                <td>
-                    <a href="{{ route('showUpdateCategory', ['id'=>$c['id']])}}" class="btn btn-outline-primary" role="button">Обновить</a>
-                    <a href="{{ route('deleteCategory', ['id'=>$c['id']])}}" class="btn btn-outline-danger" role="button">Удалить</a>
-                </td>
-            </tr>
-        @endforeach
-          
+            @foreach ($cats as $c)
+                <tr>
+                    <th scope="row">{{ $c['id']}}</th>
+                    <td>{{ $c['title']}}</td>
+                    <td>
+                        <a href="{{ route('showUpdateCategory', ['id'=>$c['id']])}}" class="btn btn-outline-primary" role="button">Обновить</a>
+                        <a href="{{ route('deleteCategory', ['id'=>$c['id']])}}" class="btn btn-outline-danger" role="button">Удалить</a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
+
+    {{ $cats->links() }}
 
     <div class="tools">
         <a href="<?php echo route('showCreateCategory')?>" class="btn btn-outline-primary" role="button">Создать категорию</a>
     </div>
-
-</div>
 @endsection

@@ -7,8 +7,6 @@
 @endpush
 
 @section('content')
-    <div class="col" id="AuthorContent">
-       <h1>Информация об авторе</h1>
        @if(session('status'))
             <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
                 {{ session('status') }}
@@ -27,9 +25,5 @@
         
         <div class="tools">
             <a href="{{ route('showUpdateAuthorInfo')}}" class="btn btn-success" role="button">Обновить</a>
-        </div><br> 
-    </div>    
-    
-
-
+        </div><br>  
 @endsection
