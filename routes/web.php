@@ -11,6 +11,7 @@ Route::prefix('admin')->group(function() {
         Route::get('/delete/{id}', ['as' => 'deleteArticle', 'uses' => 'ArticleController@deleteArticle']);
         Route::get('/update/{id}', ['as' => 'showUpdateArticle', 'uses' => 'ArticleController@showUpdateArticle']);
         Route::post('/update', ['as' => 'updateArticle', 'uses' => 'ArticleController@updateArticle']);
+        Route::post('/upload/image', ['as' => 'uploadImage', 'uses' => 'ArticleController@uploadImage']);
     });
 
     // Categories
@@ -37,3 +38,8 @@ Route::prefix('admin')->group(function() {
         Route::get('/approval/{id}', ['as' => 'approvalComment', 'uses' => 'CommentController@approvalComment']);
     });
 });
+
+Route::get('/', ['as' => 'blogMainPage', 'uses' => 'ArticleController@showAllArticles']);
+Route::get('/article/{id}', ['as' => 'showArticle', 'uses' => 'ArticleController@showArticle']);
+Route::get('/author', ['as'=>'authorPage', 'uses' => 'AuthorController@showAuthorPage']);
+Route::get('/category/{id}', ['as' => 'showArticleByCategory', 'uses' => 'ArticleController@showArticleByCategory']);

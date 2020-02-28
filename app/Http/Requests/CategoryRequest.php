@@ -3,29 +3,23 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class CategoryRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function rules(Request $request)
     {
-        return true;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            'title' => 'required|unique:category,title|max:100'
-        ];
+        if ($request->route()->getName() == 'updateCategory') {
+            $rulesArr = [
+                'title' => 'required|max:100'
+            ];
+        } else {
+            $rulesArr = [
+                'title' => 'required|unique:category,title|max:100'
+            ];
+        }
+        
+        return $rulesArr;
     }
 
     public function messages()

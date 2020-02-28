@@ -13,12 +13,17 @@
         </div>
     @endif
 
-    <form method="POST" action="<?php echo route('updateArticle');?>">
+    <form method="POST" action="{{ route('updateArticle') }}">
         @csrf
         <input type="hidden" name="articleId" value="{{ $article['id'] }}">
         <div class="form-group">
           <label for="titleArt">Заголовок</label>
         <input type="text" class="form-control" id="titleArt" name="title" value="{{ $article['title'] }}">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Изображение для превью</label>
+            <input type="file" name="previewImg" class="form-control-file">
         </div>
 
         <div class="form-group">
@@ -36,9 +41,19 @@
             </select>
         </div>
 
+        <div class="alert alert-secondary" role="alert">
+            При написании статьи вы можете использовать свои фотографии, для этого нужно загрузить их на сервер и использовать  полученную ссылку в редакторе
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Загрузить фото на сервер</label>
+            <input type="file" name="img" class="form-control-file" id="uploadArea"><br>
+            <button id="uploadImage" type="button" class="btn btn-outline-primary">Загрузить</button>
+            </div>
+
         <div class="form-group">
             <label for="content">Творите</label>
-        <textarea class="form-control" id="contentArea" name="content">{{$article['text']}}</textarea>
+        <textarea class="form-control" id="contentArea" name="content">{!!$article['text']!!}</textarea>
         </div>
 
         <button type="submit" class="btn btn-outline-primary">Обновить</button>
@@ -47,8 +62,25 @@
 @endsection
 
 @push('js')
-    <script src="<?php echo asset('js/CKEeditor/ckeditor.js')?>"></script>
+    <script src="<?php echo asset('js/ckeditor/ckeditor.js')?>"></script>
     <script>
         CKEDITOR.replace( 'contentArea' );
+
+        $('#uploadImage').on('click', function() {
+            var fd = new FormData();
+            var files = $('#uploadArea')[0].files[0];
+            fd.append('img',files);
+
+        $.ajax({
+            url: '{{ route('uploadImage') }}',
+            type: 'post',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function(data){
+                alert('Сылка на изображение: '+ data.url);
+            },
+        });
+            });
     </script>
 @endpush

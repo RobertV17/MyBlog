@@ -22,11 +22,9 @@ class CategoryController extends Controller
         $newCategory->title = $request['title']; 
         $newCategory->save();
 
-        if($newCategory->save()) {
-            echo 'All good';
-        } else {
-            echo 'We have big problems';
-        }
+        $status = ($newCategory->save()) ? 'Категория успешно создана.' : 'Возникла ошибка.';
+        $request->session()->flash('status', $status);
+        return redirect()->route('allCategories');
     }
 
     public function deleteCategory(Request $request, $id) {

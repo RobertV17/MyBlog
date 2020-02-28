@@ -11,9 +11,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i<30; $i++) {
+        $categories = ['Айти', 'Путешевствия', 'Мысли', 'Еда', 'Фитнес', 'Здоровье', 'Финансы'];
+
+        for($i = 0; $i<6; $i++) {
             DB::table('category')->insert([
-                'title' => 'ИТ',
+                'title' => $categories[$i],
                 'created_at' => date("Y-m-d H:i:s")
             ]);
         }

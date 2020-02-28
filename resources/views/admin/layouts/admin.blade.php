@@ -18,23 +18,10 @@ if ($author->avatar_path == null) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo asset('css/bootstrap/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo asset('css/admin/main.css')?>">
-    <link rel="stylesheet" href="<?php echo asset('css/admin/preloader.css')?>">
     @stack('css')
     <title>@yield('title')</title>
 </head>
 <body>
-    {{-- Preloader --}}
-    <div id="loaderr">
-    <div class="loader">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-        <div class="bar6"></div>
-    </div>
-    </div>
-
     <nav class="menu" tabindex="0">
         <div class="smartphone-menu-trigger"></div>
     <header class="avatar">
@@ -62,6 +49,5 @@ if ($author->avatar_path == null) {
 
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/preloader.js') }}"></script>
 @stack('js')
 </html>
