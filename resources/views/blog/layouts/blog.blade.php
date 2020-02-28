@@ -15,7 +15,7 @@ $cats = Category::all();
     <link rel="stylesheet" href="{{ asset('css/blog/stl.css') }}">
 </head>
 <body>  
-    <!-- NAVIGATION -->
+    <!-- Меню -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="{{ route('blogMainPage') }}">MyBlog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@ $cats = Category::all();
         </div>
     </nav>
 
-    {{-- CONTENT --}}
+    {{-- контент --}}
     <div class="container">
         <div class="row">
             <div class="col">

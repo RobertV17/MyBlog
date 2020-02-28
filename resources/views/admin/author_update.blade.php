@@ -3,6 +3,7 @@
 @section('title','Обновление информации о авторе')
 
 @section('content')
+    {{-- Вывод ошибок валидации --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -16,8 +17,8 @@
     <form method="POST" action="{{ route('updateAuthorInfo') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-          <label for="titleArt">Полное имя:</label>
-          <input type="text" class="form-control" id="titleArt" name="name" value="{{ $name}}">
+            <label for="titleArt">Полное имя:</label>
+            <input type="text" class="form-control" id="titleArt" name="name" value="{{ $name}}">
         </div>
 
         <div class="form-group">
@@ -31,12 +32,11 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Обновить</button>
-        </div>
     </form>
 @endsection
 
 @push('js')
-    <script src="<?php echo asset('js/CKEeditor/ckeditor.js')?>"></script>
+    <script src="{{ asset('js/CKEeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'contentArea' );
     </script>

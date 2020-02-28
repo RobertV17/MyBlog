@@ -3,10 +3,11 @@
 @section('title','Комментарии')
 
 @push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/comments/comments.css')?>">
+    <link rel="stylesheet" href="{{ asset('css/admin/comments/comments.css') }}">
 @endpush
 
 @section('content')
+        {{-- Вывод статусов --}}
         @if(session('status'))
             <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
                 {{ session('status') }}
@@ -25,6 +26,7 @@
                 <th scope="col">Действия</th>
               </tr>
             </thead>
+
             <tbody>
                 @foreach ($comments as $c)
                     <tr>

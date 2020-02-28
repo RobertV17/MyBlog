@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAuthorTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('author', function (Blueprint $table) {
@@ -22,11 +17,6 @@ class CreateAuthorTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('author');

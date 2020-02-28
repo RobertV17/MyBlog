@@ -1,11 +1,18 @@
 <?php
 
+// Public routes
+Route::get('/', ['as' => 'blogMainPage', 'uses' => 'ArticleController@showAllArticles']);
+Route::get('/article/{id}', ['as' => 'showArticle', 'uses' => 'ArticleController@showArticle']);
+Route::get('/author', ['as'=>'authorPage', 'uses' => 'AuthorController@showAuthorPage']);
+Route::get('/category/{id}', ['as' => 'showArticleByCategory', 'uses' => 'ArticleController@showArticleByCategory']);
+
+// Admin Routes
 Route::prefix('admin')->group(function() {
-    Route::get('/',['as' => 'adminPage', 'uses' => 'AdminController@showMainPage']);
+    Route::get('/',['as' => 'adminDashboard', 'uses' => 'AdminController@showDashboard']);
 
     // Articles
     Route::prefix('articles')->group(function() {
-        Route::get('/',['as' => 'allArticles', 'uses' => 'ArticleController@showArticlesManager']);
+        Route::get('/',['as' => 'articleManager', 'uses' => 'ArticleController@showArticlesManager']);
         Route::get('/create',['as' => 'showCreateArticle', 'uses' => 'ArticleController@showCreateArticle']);
         Route::post('/create',['as' => 'createArticle', 'uses' => 'ArticleController@createArticle']);
         Route::get('/delete/{id}', ['as' => 'deleteArticle', 'uses' => 'ArticleController@deleteArticle']);
@@ -16,7 +23,7 @@ Route::prefix('admin')->group(function() {
 
     // Categories
     Route::prefix('categories')->group(function() {
-        Route::get('/', ['as' => 'allCategories', 'uses' => 'CategoryController@showCategoriesManager']);
+        Route::get('/', ['as' => 'categoriesManager', 'uses' => 'CategoryController@showCategoriesManager']);
         Route::get('/create', ['as' => 'showCreateCategory', 'uses' => 'CategoryController@showCreateCategory']);
         Route::post('/create', ['as' => 'createCategory', 'uses' => 'CategoryController@createCategory']);
         Route::get('/delete/{id}', ['as' => 'deleteCategory', 'uses' => 'CategoryController@deleteCategory']);
@@ -38,8 +45,3 @@ Route::prefix('admin')->group(function() {
         Route::get('/approval/{id}', ['as' => 'approvalComment', 'uses' => 'CommentController@approvalComment']);
     });
 });
-
-Route::get('/', ['as' => 'blogMainPage', 'uses' => 'ArticleController@showAllArticles']);
-Route::get('/article/{id}', ['as' => 'showArticle', 'uses' => 'ArticleController@showArticle']);
-Route::get('/author', ['as'=>'authorPage', 'uses' => 'AuthorController@showAuthorPage']);
-Route::get('/category/{id}', ['as' => 'showArticleByCategory', 'uses' => 'ArticleController@showArticleByCategory']);

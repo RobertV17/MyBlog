@@ -3,10 +3,11 @@
 @section('title','Категории')
 
 @push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/categories/allCategories.css')?>">
+    <link rel="stylesheet" href="{{ echo asset('css/admin/categories/categoriesManager.css') }}">
 @endpush
 
 @section('content')
+    {{-- Вывод статусов --}}
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
             {{ session('status') }}
@@ -41,6 +42,6 @@
     {{ $cats->links() }}
 
     <div class="tools">
-        <a href="<?php echo route('showCreateCategory')?>" class="btn btn-outline-primary" role="button">Создать категорию</a>
+        <a href="{{ route('showCreateCategory') }}" class="btn btn-outline-primary" role="button">Создать категорию</a>
     </div>
 @endsection

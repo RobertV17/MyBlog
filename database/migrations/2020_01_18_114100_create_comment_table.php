@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('comment', function (Blueprint $table) {
@@ -28,11 +23,6 @@ class CreateCommentTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('comment');

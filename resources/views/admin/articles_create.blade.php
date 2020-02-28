@@ -3,6 +3,7 @@
 @section('title','Создание статьи')
 
 @section('content')
+    {{-- Вывод ошибок валидации --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -16,8 +17,8 @@
     <form method="POST" action="{{ route('createArticle') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-          <label for="titleArt">Заголовок</label>
-          <input type="text" class="form-control" id="titleArt" name="title">
+            <label for="titleArt">Заголовок</label>
+            <input type="text" class="form-control" id="titleArt" name="title">
         </div>
 
         <div class="form-group">
@@ -41,9 +42,9 @@
 
         <div class="alert alert-secondary" role="alert">
             При написании статьи вы можете использовать свои фотографии, для этого нужно загрузить их на сервер и использовать  полученную ссылку в редакторе
-          </div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
             <label for="exampleFormControlFile1">Загрузить фото на сервер</label>
             <input type="file" name="img" class="form-control-file" id="uploadArea"><br>
             <button id="uploadImage" type="button" class="btn btn-outline-primary">Загрузить</button>
@@ -60,25 +61,26 @@
 @endsection
 
 @push('js')
-    <script src="<?php echo asset('js/ckeditor/ckeditor.js')?>"></script>
+    <script src="{{ echo asset('js/ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'contentArea' );
 
+        // при нажатии кнопки загрузки катинки на сервер
         $('#uploadImage').on('click', function() {
             var fd = new FormData();
             var files = $('#uploadArea')[0].files[0];
             fd.append('img',files);
 
-        $.ajax({
-            url: '{{ route('uploadImage') }}',
-            type: 'post',
-            data: fd,
-            contentType: false,
-            processData: false,
-            success: function(data){
-                alert('Сылка на изображение: '+ data.url);
-            },
-        });
+            $.ajax({
+                url: '{{ route('uploadImage') }}',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    alert('Сылка на изображение: '+ data.url);
+                },
             });
+        });
     </script>
 @endpush

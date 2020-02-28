@@ -3,6 +3,7 @@
 @section('title','Создать категорию')
 
 @section('content')
+    {{-- Вывод ошибок валидации --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -13,7 +14,7 @@
         </div>
     @endif
 
-    <form method="POST" action="<?php echo route('createCategory')?>">
+    <form method="POST" action="{{ route('createCategory') }}">
         @csrf
         <div class="form-group">
             <label for="catTitle">Нименование</label>

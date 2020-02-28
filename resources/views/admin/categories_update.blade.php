@@ -3,6 +3,7 @@
 @section('title','Обновить категорию')
 
 @section('content')
+    {{-- Вывод ошибок валидации --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -13,7 +14,7 @@
         </div>
     @endif
 
-    <form method="POST" action="<?php echo route('updateCategory')?>">
+    <form method="POST" action="{{ route('updateCategory') }}">
         @csrf
         <div class="form-group">
         <input type="hidden" name="catId" value="{{ $category['id'] }}">

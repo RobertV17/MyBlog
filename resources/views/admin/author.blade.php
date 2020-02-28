@@ -3,10 +3,11 @@
 @section('title','Автор блога')
 
 @push('css')
-    <link rel="stylesheet" href="<?php echo asset('css/admin/author/author.css')?>">
+    <link rel="stylesheet" href="{{ echo asset('css/admin/author/author.css') }}">
 @endpush
 
 @section('content')
+        {{-- Вывод статусов --}}
        @if(session('status'))
             <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
                 {{ session('status') }}

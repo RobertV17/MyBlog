@@ -1,7 +1,7 @@
 @extends('blog.layouts.blog')
 
 @section('content')
-    @foreach ($arts as $a)
+    @foreach ($articles as $a)
         <div class="article">
             <div class="titleImage">
                 <img src="{{ asset('storage/'.$a->preview_img) }}" alt="">
@@ -16,5 +16,5 @@
         </div> 
     @endforeach
  
-{{ $arts->links() }}
+{{ $articles->links() }}
 @endsection

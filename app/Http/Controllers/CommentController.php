@@ -7,11 +7,13 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
+    // Вывод менеджера коментов админке
     public function showCommentManager() {
         $noModerComments = Comment::where('moderated', 0)->paginate(8);
         return view('admin.comments', ['comments' => $noModerComments]);
     }
 
+    // Удаление комента
     public function deleteComment(Request $request, $id) {
         $comment = Comment::find($id);
         
@@ -23,6 +25,7 @@ class CommentController extends Controller
 
     }
 
+    // Публикация комента
     public function approvalComment(Request $request, $id) {
         $comment = Comment::find($id);
         $comment->moderated = 1;

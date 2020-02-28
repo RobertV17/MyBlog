@@ -3,6 +3,7 @@
 @section('title','Редактирование статьи')
 
 @section('content')
+    {{-- Вывод ошибок валидации --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -17,8 +18,8 @@
         @csrf
         <input type="hidden" name="articleId" value="{{ $article['id'] }}">
         <div class="form-group">
-          <label for="titleArt">Заголовок</label>
-        <input type="text" class="form-control" id="titleArt" name="title" value="{{ $article['title'] }}">
+            <label for="titleArt">Заголовок</label>
+            <input type="text" class="form-control" id="titleArt" name="title" value="{{ $article['title'] }}">
         </div>
 
         <div class="form-group">
@@ -28,7 +29,7 @@
 
         <div class="form-group">
             <label for="desc">Краткое описание</label>
-        <textarea class="form-control" id="desc" rows="3" name="desc">{{ $article['description']}}</textarea>
+            <textarea class="form-control" id="desc" rows="3" name="desc">{{ $article['description']}}</textarea>
         </div>
 
         <div class="form-group">
@@ -43,29 +44,29 @@
 
         <div class="alert alert-secondary" role="alert">
             При написании статьи вы можете использовать свои фотографии, для этого нужно загрузить их на сервер и использовать  полученную ссылку в редакторе
-          </div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
             <label for="exampleFormControlFile1">Загрузить фото на сервер</label>
             <input type="file" name="img" class="form-control-file" id="uploadArea"><br>
             <button id="uploadImage" type="button" class="btn btn-outline-primary">Загрузить</button>
-            </div>
+        </div>
 
         <div class="form-group">
             <label for="content">Творите</label>
-        <textarea class="form-control" id="contentArea" name="content">{!!$article['text']!!}</textarea>
+            <textarea class="form-control" id="contentArea" name="content">{!!$article['text']!!}</textarea>
         </div>
 
         <button type="submit" class="btn btn-outline-primary">Обновить</button>
-        </div>
-      </form>
+    </form>
 @endsection
 
 @push('js')
-    <script src="<?php echo asset('js/ckeditor/ckeditor.js')?>"></script>
+    <script src="{{ echo asset('js/ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'contentArea' );
 
+        // при нажатии кнопки загрузки катинки на сервер
         $('#uploadImage').on('click', function() {
             var fd = new FormData();
             var files = $('#uploadArea')[0].files[0];

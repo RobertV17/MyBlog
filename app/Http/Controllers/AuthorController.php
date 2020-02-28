@@ -9,6 +9,7 @@ use App\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
+    // Вывод страницы автора
     public function showAuthorPage() {
         $author = Author::find(1);
 
@@ -21,16 +22,19 @@ class AuthorController extends Controller
         return view('blog.author_page', ['author' => $author, 'avatar' => $avatarUrl]);
     }
 
+    // Инфо об авторе в админке
     public function showAuthorInfoManager() {
         $author = Author::find(1);
         return view('admin.author', ['name' => $author['name'], 'info' => $author['info'], 'avatar' => "storage/".$author['avatar_path']]);
     }
 
+    // Выведет форму обновления инфы об авторе
     public function showUpdateAuthorInfo() {
         $author = Author::find(1);
         return view('admin.author_update', ['name' => $author['name'], 'info' => $author['info']]);
     }
 
+    // Обновление инфы об авторе
     public function updateAuthorInfo(AuthorRequest $request) {
         $author = Author::find(1);
 
