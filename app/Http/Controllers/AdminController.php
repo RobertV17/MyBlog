@@ -9,6 +9,12 @@ class AdminController extends Controller
     public function showDashboard() {
         return view('admin.dashboard');
     }
+
+    public function logout() {
+        auth()->logout();
+
+        return redirect()->route('blogMainPage');
+    }
 }
 
 

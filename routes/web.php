@@ -7,8 +7,9 @@ Route::get('/author', ['as'=>'authorPage', 'uses' => 'AuthorController@showAutho
 Route::get('/category/{id}', ['as' => 'showArticleByCategory', 'uses' => 'ArticleController@showArticleByCategory']);
 
 // Admin Routes
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware('auth')->group(function() {
     Route::get('/',['as' => 'adminDashboard', 'uses' => 'AdminController@showDashboard']);
+    Route::get('/logout', ['as' => 'logoutFromAdmin', 'uses' => 'AdminController@logout']);
 
     // Articles
     Route::prefix('articles')->group(function() {
@@ -45,3 +46,6 @@ Route::prefix('admin')->group(function() {
         Route::get('/approval/{id}', ['as' => 'approvalComment', 'uses' => 'CommentController@approvalComment']);
     });
 });
+
+// Auth routes
+Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);

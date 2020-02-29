@@ -3,7 +3,7 @@
 @section('title','Автор блога')
 
 @push('css')
-    <link rel="stylesheet" href="{{ echo asset('css/admin/author/author.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/author/author.css') }}">
 @endpush
 
 @section('content')
@@ -18,7 +18,7 @@
         @endif
         
 
-        <div id="avatar"><img src="{{ asset("$avatar") }}" alt="avatar" width="300" height="300"></div>
+        <div id="avatar"><img src="{{ $avatar }}" alt="avatar" width="250" height="250"></div>
         <h3>{{ $name }}</h3>
         <div id="info">
             {!! $info !!}

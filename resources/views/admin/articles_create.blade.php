@@ -61,7 +61,7 @@
 @endsection
 
 @push('js')
-    <script src="{{ echo asset('js/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'contentArea' );
 

@@ -3,7 +3,7 @@
 @section('title','Категории')
 
 @push('css')
-    <link rel="stylesheet" href="{{ echo asset('css/admin/categories/categoriesManager.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/categories/categoriesManager.css') }}">
 @endpush
 
 @section('content')

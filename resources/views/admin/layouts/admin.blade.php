@@ -31,11 +31,12 @@ if ($author->avatar_path == null) {
         </header>
 
         <ul>
-            <li tabindex="0" class="icon-panel"><a href='{{ route('adminDashboard') }}'><span>Панель управления</span></a></li>
+            {{-- <li tabindex="0" class="icon-panel"><a href='{{ route('adminDashboard') }}'><span>Панель управления</span></a></li> --}}
             <li tabindex="0" class="icon-dashboard"><a href='{{ route('articleManager') }}'><span>Статьи</span></a></li>
             <li tabindex="0" class="icon-customers"><a href='{{ route('categoriesManager') }}'><span>Категории</span></a></li>
             <li tabindex="0" class="icon-users"><a href='{{ route('commentManager') }}'><span>Комментарии</span></a></li>
             <li tabindex="0" class="icon-settings"><a href='{{ route('authorInfo') }}'><span>Автор</span></a></li>
+            <li tabindex="0" class="icon-settings"><a href='{{ route('logoutFromAdmin') }}'><span>Выход</span></a></li>
         </ul>
     </nav>
 

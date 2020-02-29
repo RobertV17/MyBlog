@@ -25,7 +25,14 @@ class AuthorController extends Controller
     // Инфо об авторе в админке
     public function showAuthorInfoManager() {
         $author = Author::find(1);
-        return view('admin.author', ['name' => $author['name'], 'info' => $author['info'], 'avatar' => "storage/".$author['avatar_path']]);
+
+        if ($author->avatar_path == null) {
+            $avatarUrl = asset('img/admin.jpeg');
+        } else {
+            $avatarUrl = asset('storage/'.$author->avatar_path);
+        }
+
+        return view('admin.author', ['name' => $author['name'], 'info' => $author['info'], 'avatar' => $avatarUrl]);
     }
 
     // Выведет форму обновления инфы об авторе
