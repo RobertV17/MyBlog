@@ -1,17 +1,18 @@
 <?php
 
-// Public routes
+// Открытые маршруты
 Route::get('/', ['as' => 'blogMainPage', 'uses' => 'ArticleController@showAllArticles']);
 Route::get('/article/{id}', ['as' => 'showArticle', 'uses' => 'ArticleController@showArticle']);
 Route::get('/author', ['as'=>'authorPage', 'uses' => 'AuthorController@showAuthorPage']);
 Route::get('/category/{id}', ['as' => 'showArticleByCategory', 'uses' => 'ArticleController@showArticleByCategory']);
+Route::post('/comment/send', ['as' => 'sendComment', 'uses' => 'CommentController@sendComment']);
 
-// Admin Routes
+// Маршруты доступные только админу
 Route::prefix('admin')->middleware('auth')->group(function() {
     Route::get('/',['as' => 'adminDashboard', 'uses' => 'AdminController@showDashboard']);
     Route::get('/logout', ['as' => 'logoutFromAdmin', 'uses' => 'AdminController@logout']);
 
-    // Articles
+    // Статьи
     Route::prefix('articles')->group(function() {
         Route::get('/',['as' => 'articleManager', 'uses' => 'ArticleController@showArticlesManager']);
         Route::get('/create',['as' => 'showCreateArticle', 'uses' => 'ArticleController@showCreateArticle']);
@@ -22,7 +23,7 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         Route::post('/upload/image', ['as' => 'uploadImage', 'uses' => 'ArticleController@uploadImage']);
     });
 
-    // Categories
+    // Категории
     Route::prefix('categories')->group(function() {
         Route::get('/', ['as' => 'categoriesManager', 'uses' => 'CategoryController@showCategoriesManager']);
         Route::get('/create', ['as' => 'showCreateCategory', 'uses' => 'CategoryController@showCreateCategory']);
@@ -32,14 +33,14 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         Route::post('/update', ['as' => 'updateCategory', 'uses' => 'CategoryController@updateCategory']);
     });
 
-    // Author
+    // Автор
     Route::prefix('author')->group(function() {
     Route::get('/',['as' => 'authorInfo', 'uses' => 'AuthorController@showAuthorInfoManager']);
     Route::get('/update', ['as' => 'showUpdateAuthorInfo', 'uses' => 'AuthorController@showUpdateAuthorInfo']);
     Route::post('/update', ['as' => 'updateAuthorInfo', 'uses' => 'AuthorController@updateAuthorInfo']);
     });
 
-    // Comments
+    // Комменты
     Route::prefix('comments')->group(function() {
         Route::get('/', ['as' => 'commentManager', 'uses' => 'CommentController@showCommentManager']);
         Route::get('/delete/{id}', ['as' => 'deleteComment', 'uses' => 'CommentController@deleteComment']);
@@ -47,5 +48,4 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     });
 });
 
-// Auth routes
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);

@@ -22,7 +22,7 @@
             <input type="text" class="form-control" id="catTitle" name="title" value="{{ $category['title'] }}">
             <small id="emailHelp" class="form-text text-muted">Ограничение 100 символов</small>
         </div>
-    
-    <button type="submit" class="btn btn-outline-primary">Обновить</button>
-  </form>
+
+        <button type="submit" class="btn btn-outline-primary">Обновить</button>
+    </form>
 @endsection

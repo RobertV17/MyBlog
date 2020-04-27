@@ -35,7 +35,7 @@
             <label for="cats">Категория</label>
             <select class="form-control" id="cats" name="catId">
                 @foreach ($categories as $c)
-                    <option value="{{ $c->id }}">{{ $c->title }}</option>      
+                    <option value="{{ $c->id }}">{{ $c->title }}</option>
                 @endforeach
             </select>
         </div>
@@ -56,8 +56,7 @@
         </div>
 
         <button type="submit" class="btn btn-outline-primary">Создать</button>
-        </div>
-      </form>
+    </form>
 @endsection
 
 @push('js')

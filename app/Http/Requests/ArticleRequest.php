@@ -7,21 +7,23 @@ use Illuminate\Http\Request;
 
 class ArticleRequest extends FormRequest
 {
-    
+
     public function rules(Request $request)
     {
         if ($request->route()->getName() == 'updateArticle') {
             $rulesArr = [
                 'title' => 'required|max:255',
                 'desc' => 'required|max:500',
-                'content' => 'required|max:6000'
+                'content' => 'required|max:6000',
+                'previewImg' => 'nullable|file|max:20000'
             ];
         } else {
            $rulesArr = [
                 'title' => 'required|unique:article,title|max:255',
                 'desc' => 'required|max:500',
-                'content' => 'required|max:6000'
-            ]; 
+                'content' => 'required|max:6000',
+                'previewImg' => 'file|required|max:20000'
+            ];
         }
 
         return $rulesArr;
@@ -39,6 +41,10 @@ class ArticleRequest extends FormRequest
 
             'content.required' => 'Напишите же статью.',
             'content.max' => 'Статья превышает допустимое значение символов.',
+
+            'previewImg.required' => 'Укажите изображение статьи (превью).',
+            'previewImg.size' => 'Объем изображение статьи превышает 20мб',
+            'previewImg.file' => 'При загрузке файла произошла ошибка'
         ];
     }
 }

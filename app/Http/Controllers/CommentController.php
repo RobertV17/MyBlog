@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConfirmComment;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -13,28 +15,35 @@ class CommentController extends Controller
         return view('admin.comments', ['comments' => $noModerComments]);
     }
 
-    // Удаление комента
     public function deleteComment(Request $request, $id) {
         $comment = Comment::find($id);
-        
         $status = ($comment->delete()) ? 'Комментарий удален.' : 'Возникла ошибка.';
-
         $request->session()->flash('status', $status);
-        
-        return redirect()->route('commentManager');
 
+        return redirect()->route('commentManager');
     }
 
     // Публикация комента
     public function approvalComment(Request $request, $id) {
         $comment = Comment::find($id);
         $comment->moderated = 1;
-        
+
         $status = ($comment->save()) ? 'Комментарий одобрен.' : 'Возникла ошибка.';
 
         $request->session()->flash('status', $status);
-        
+
         return redirect()->route('commentManager');
-        
+
+    }
+
+    public function sendComment(CommentRequest $request) {
+        $newComment = Comment::create([
+            'art_id' => $request->art_id,
+            'author' => $request->author,
+            'email' => $request->email,
+            'text' => $request->comment
+        ]);
+
+        return response()->json(['status' => 'success']);
     }
 }

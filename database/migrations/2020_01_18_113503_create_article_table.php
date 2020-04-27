@@ -14,7 +14,7 @@ class CreateArticleTable extends Migration
             $table->bigInteger('cat_id')->unsigned();
             $table->string('title', 255);
             $table->string('preview_img', 255);
-            $table->text('description', 500);
+            $table->string('description', 255);
             $table->text('text');
         });
 

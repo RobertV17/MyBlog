@@ -1,10 +1,10 @@
-<?php 
+<?php
 use App\Models\Author;
 
 $author = Author::find(1);
 
 if ($author->avatar_path == null) {
-    $avatar = asset('img/admin.jpeg');
+    $avatar = asset('img/author.jpg');
 } else {
     $avatar = asset('storage/'.$author->avatar_path);
 }
@@ -22,25 +22,24 @@ if ($author->avatar_path == null) {
     <title>@yield('title')</title>
 </head>
 <body>
-    <nav class="menu" tabindex="0">
-        <div class="smartphone-menu-trigger"></div>
+    <div id="menu">
+        <div id="smartphoneMenu" data-stage="closed"></div>
 
-        <header class="avatar">
-            <img src="{{ $avatar }}" width="100" height="100" />
+        <div id="menuHeader">
+            <img src="{{ $avatar }}" alt="avatar">
             <h4>{{ $author->name }}</h4>
-        </header>
+        </div>
 
-        <ul>
-            {{-- <li tabindex="0" class="icon-panel"><a href='{{ route('adminDashboard') }}'><span>Панель управления</span></a></li> --}}
-            <li tabindex="0" class="icon-dashboard"><a href='{{ route('articleManager') }}'><span>Статьи</span></a></li>
-            <li tabindex="0" class="icon-customers"><a href='{{ route('categoriesManager') }}'><span>Категории</span></a></li>
-            <li tabindex="0" class="icon-users"><a href='{{ route('commentManager') }}'><span>Комментарии</span></a></li>
-            <li tabindex="0" class="icon-settings"><a href='{{ route('authorInfo') }}'><span>Автор</span></a></li>
-            <li tabindex="0" class="icon-settings"><a href='{{ route('logoutFromAdmin') }}'><span>Выход</span></a></li>
-        </ul>
-    </nav>
+        <div id="menuContent">
+            <a href="{{ route('articleManager') }}">Статьи</a>
+            <a href="{{ route('categoriesManager') }}">Категории</a>
+            <a href="{{ route('commentManager') }}">Комментарии</a>
+            <a href="{{ route('authorInfo') }}">Автор</a>
+            <a href="{{ route('logoutFromAdmin') }}">Выход</a>
+        </div>
+    </div>
 
-    <div class="container">
+    <div class="container" id="mainContent">
         <div class="row">
             <div class="col content">
                 <h1>@yield('title')</h1>
@@ -48,9 +47,28 @@ if ($author->avatar_path == null) {
             </div>
         </div>
     </div>
-</body>
 
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-@stack('js')
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    @stack('js')
+    <script>
+        $(window).resize(function(){
+            if ($(window).width() > 900 ) {
+                $('#menu').css('left','0px');
+            }
+        });
+
+        $('#smartphoneMenu').on('click', function() {
+            if($(this).attr('data-stage') === 'closed') {
+                $('#menu').animate({'left':'240px'}, 200);
+
+                $(this).attr('data-stage', 'opened');
+            } else {
+                $('#menu').animate({'left':'0'}, 200);
+
+                $(this).attr('data-stage', 'closed');
+            }
+        });
+    </script>
+</body>
 </html>

@@ -11,7 +11,7 @@ class AuthorRequest extends FormRequest
         return [
             'name' => 'required|max:100',
             'info' => 'required|max:3000',
-            'avatar' => 'required|max:20000'
+            'avatar' => 'file|max:20000'
         ];
     }
 
@@ -24,8 +24,8 @@ class AuthorRequest extends FormRequest
             'info.required' => 'Напишите что-нибудь о себе.',
             'info.max' => 'Описание превышает допустимое значение символов.',
 
-            'avatar.required' => 'Укажите ваше фото.',
             'avatar.size' => 'Объем картинки превышает 20мб',
+            'avatar.file' => 'При загрузке файла произошла ошибка'
         ];
     }
 }

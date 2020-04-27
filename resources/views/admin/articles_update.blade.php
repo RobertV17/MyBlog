@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('updateArticle') }}">
+    <form method="POST" action="{{ route('updateArticle') }}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="articleId" value="{{ $article['id'] }}">
         <div class="form-group">
@@ -37,7 +37,7 @@
             <select class="form-control" id="cats" name="cat_id">
                 @foreach ($categories as $c)
                     <option @if ($c['id'] == $article['cat_id']) selected="selected" @endif
-                     value="{{ $c->id }}">{{ $c->title }}</option>      
+                     value="{{ $c->id }}">{{ $c->title }}</option>
                 @endforeach
             </select>
         </div>

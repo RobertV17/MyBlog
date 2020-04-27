@@ -20,9 +20,9 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Наименование</th>
-            <th scope="col">Действие</th>
+            <th scope="col" class="col-1">ID</th>
+            <th scope="col" class="col-10">Наименование</th>
+            <th scope="col" class="col-1">Действие</th>
           </tr>
         </thead>
         <tbody>
@@ -31,17 +31,18 @@
                     <th scope="row">{{ $c['id']}}</th>
                     <td>{{ $c['title']}}</td>
                     <td>
-                        <a href="{{ route('showUpdateCategory', ['id'=>$c['id']])}}" class="btn btn-outline-primary" role="button">Обновить</a>
-                        <a href="{{ route('deleteCategory', ['id'=>$c['id']])}}" class="btn btn-outline-danger" role="button">Удалить</a>
+                        <a href="{{ route('showUpdateCategory', ['id'=>$c['id']]) }}" class="actionTools update"></a>
+                        <a href="{{ route('deleteCategory', ['id'=>$c['id']])}}" class="actionTools delete"></a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="/mypath"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>
 
     {{ $cats->links() }}
 
     <div class="tools">
-        <a href="{{ route('showCreateCategory') }}" class="btn btn-outline-primary" role="button">Создать категорию</a>
+        <a href="{{ route('showCreateCategory') }}" class="actionTools create"></a>
     </div>
 @endsection

@@ -14,3 +14,7 @@ tr td:last-child {
 tr th:last-child {
     text-align: center;
 }
+
+td:nth-child(4) {
+    text-align: center;
+}

@@ -13,8 +13,8 @@ class AuthorInfoSeeder extends Seeder
     public function run()
     {
         DB::table('author')->insert([
-            'name' => 'Jhonny Cash',
-            'info' => 'vvvv',
+            'name' => 'Джон Доу',
+            'info' => 'Джон Доу - автор, философ и просто хороший мальчик.',
             'created_at' => date("Y-m-d H:i:s")
         ]);
     }

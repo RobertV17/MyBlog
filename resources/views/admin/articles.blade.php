@@ -19,13 +19,12 @@
 
     <table class="table table-bordered">
         <thead class="thead-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Заголовок</th>
-            <th scope="col">Категория</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Действие</th>
-          </tr>
+            <tr>
+                <th scope="col" class="col-1">ID</th>
+                <th scope="col" class="col-5">Заголовок</th>
+                <th scope="col" class="col-5">Категория</th>
+                <th scope="col" class="col-1">Действие</th>
+            </tr>
         </thead>
 
         <tbody>
@@ -34,18 +33,17 @@
                     <th scope="row">{{ $a['id']}}</th>
                     <td>{{ $a['title']}}</td>
                     <td>{{ $a['category']}}</td>
-                    <td>{{ $a['description']}}</td>
                     <td>
-                        <a href="{{ route('showUpdateArticle', ['id'=>$a['id']])}}" class="btn  btn-outline-primary" role="button">Обновить</a>
-                        <a href="{{ route('deleteArticle', ['id'=>$a['id']])}}" class="btn  btn-outline-danger" role="button">Удалить</a>
+                        <a href="{{ route('showUpdateArticle', ['id'=>$a['id']])}}" class="actionTools update"></a>
+                        <a href="{{ route('deleteArticle', ['id'=>$a['id']])}}" class="actionTools delete"></a>
                     </td>
                 </tr>
-            @endforeach      
+            @endforeach
         </tbody>
     </table>
     {{ $articles->links() }}
 
     <div class="tools">
-        <a href="{{ route('showCreateArticle') }}" class="btn  btn-outline-primary" role="button">Написать статью</a>
+        <a href="{{ route('showCreateArticle') }}" class="create"></a>
     </div>
 @endsection

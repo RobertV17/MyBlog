@@ -31,7 +31,7 @@
             <input type="file" class="form-control-file" id="avatar" name="avatar">
         </div>
 
-        <button type="submit" class="btn btn-primary">Обновить</button>
+        <button type="submit" class="btn btn-outline-primary">Обновить</button>
     </form>
 @endsection
 
