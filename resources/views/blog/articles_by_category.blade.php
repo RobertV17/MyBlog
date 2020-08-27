@@ -8,10 +8,9 @@
             </div>
 
             <div class="contentt">
-                <div class="title">{{ $a->title }}</div>
-                <div class="catigory">{{ $category }}</div>
+                <div class="title"><a href="{{ route('showArticle', ['id' => $a->id]) }}">{{ $a->title }}</a></div>
+                <div class="catigory">{{ $a->category }}</div>
                 <div class="description">{{ $a->description }}</div>
-                <a href="{{ route('showArticle', ['id' => $a->id]) }}">Читать полностью</a>
             </div>
         </div>
     @endforeach

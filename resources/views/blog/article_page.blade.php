@@ -31,17 +31,19 @@
 
     {{-- Форма создания коммента --}}
     <div id="writeComment">
-        <div class="form-group">
-            <label for="author">Имя:</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Имя">
+
+        <div class="form-row">
+            <div class="col-sm">
+                <label for="author">Имя:</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Имя">
+            </div>
+            <div class="col-sm">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="email">
-        </div>
-
-        <div class="form-group">
+        <div class="form-group commentText">
             <label for="comment">Комментарий</label>
             <textarea class="form-control" id="comment" rows="5" name="comment"></textarea>
         </div>

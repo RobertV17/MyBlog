@@ -20,10 +20,10 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th scope="col" class="col-1">ID</th>
-                <th scope="col" class="col-5">Заголовок</th>
-                <th scope="col" class="col-5">Категория</th>
-                <th scope="col" class="col-1">Действие</th>
+                <th scope="col">ID</th>
+                <th scope="col">Заголовок</th>
+                <th scope="col">Категория</th>
+                <th scope="col">Действие</th>
             </tr>
         </thead>
 

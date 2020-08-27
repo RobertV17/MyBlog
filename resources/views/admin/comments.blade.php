@@ -20,11 +20,11 @@
         <table class="table table-bordered">
             <thead class="thead-dark">
               <tr>
-                <th scope="col" class="col-1">ID</th>
-                <th scope="col" class="col-3">Автор</th>
-                <th scope="col" class="col-6">Содержание</th>
-                <th scope="col" class="col-1">Статья</th>
-                <th scope="col" class="col-1">Действия</th>
+                <th scope="col">ID</th>
+                <th scope="col">Автор</th>
+                <th scope="col">Содержание</th>
+                <th scope="col">Статья</th>
+                <th scope="col">Действия</th>
               </tr>
             </thead>
 
