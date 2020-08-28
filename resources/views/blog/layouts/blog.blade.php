@@ -12,6 +12,7 @@ $cats = Category::all();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyBlog</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/confirmJq/jquery-confirm.css') }}">
     <link rel="stylesheet" href="{{ asset('css/blog/stl.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
@@ -37,7 +38,7 @@ $cats = Category::all();
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('authorPage') }}">Об авторе</a>
+              <a class="nav-link" href="{{ route('authorPage') }}">Автор</a>
             </li>
 
           </ul>
@@ -58,5 +59,7 @@ $cats = Category::all();
 
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/confirmJq/jquery-confirm.js') }}"></script>
+<script src="{{ asset('js/blog/main.js') }}"></script>
 @stack('js')
 </html>

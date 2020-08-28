@@ -7,6 +7,10 @@
 @endpush
 
 @section('content')
+    <div class="tools">
+        <a href="{{ route('showCreateCategory') }}" class="actionTools create"></a>
+    </div>
+
     {{-- Вывод статусов --}}
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
@@ -17,7 +21,7 @@
         </div></p>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="catsTable">
         <thead class="thead-dark">
           <tr>
             <th scope="col">ID</th>
@@ -40,9 +44,10 @@
     </table>
     <a href="/mypath"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>
 
-    {{ $cats->links() }}
-
-    <div class="tools">
-        <a href="{{ route('showCreateCategory') }}" class="actionTools create"></a>
+    <div class="d-flex">
+        <div class="mx-auto">
+            {{ $cats->links() }}
+        </div>
     </div>
+
 @endsection

@@ -7,6 +7,10 @@
 @endpush
 
 @section('content')
+    <div class="tools">
+        <a href="{{ route('showCreateArticle') }}" class="create"></a>
+    </div>
+
     {{-- Вывод статусов --}}
     @if(session('status'))
         <p><div class="alert alert-secondary alert-dismissible fade show" role="alert">
@@ -17,7 +21,7 @@
         </div></p>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="artsTable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -41,9 +45,13 @@
             @endforeach
         </tbody>
     </table>
-    {{ $articles->links() }}
 
-    <div class="tools">
-        <a href="{{ route('showCreateArticle') }}" class="create"></a>
+    <div class="d-flex">
+        <div class="mx-auto">
+            {{ $articles->links() }}
+        </div>
     </div>
+
+
+
 @endsection

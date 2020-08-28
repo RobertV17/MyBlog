@@ -1,7 +1,12 @@
 h3 {
     margin: 20px 0;
+    font-family: "Lora";
 }
 
 #info {
     margin-bottom: 10px;
+}
+
+#avatar img {
+    border: #5c6971 solid 2px;
 }

@@ -11,7 +11,7 @@
 
     {{-- Комменты --}}
     <div id="allComments">
-        <h5>Комментарии:</h5>
+        <h5><b>Комментарии:</b></h5>
         @if($comments)
             @foreach($comments as $c)
                 <div class="commentBlock">
@@ -34,26 +34,26 @@
 
         <div class="form-row">
             <div class="col-sm">
-                <label for="author">Имя:</label>
+                <label for="author"><b>Имя:</b></label>
                 <input type="text" class="form-control" id="author" name="author" placeholder="Имя">
             </div>
             <div class="col-sm">
-                <label for="email">E-mail:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                <label for="email"><b>E-mail:</b></label>
+                <input type="text" class="form-control" id="email" name="mail" placeholder="email">
             </div>
         </div>
 
         <div class="form-group commentText">
-            <label for="comment">Комментарий</label>
+            <label for="comment"><b>Комментарий:</b></label>
             <textarea class="form-control" id="comment" rows="5" name="comment"></textarea>
         </div>
 
         <div id="sendCommentBlock">
-            <button id="sendComment" data-article="{{ $article->id }}" data-url="{{ route('sendComment') }}" type="button" class="btn btn-outline-primary">Отправить комментарий</button>
+            <button id="sendComment" data-article="{{ $article->id }}" data-url="{{ route('sendComment') }}" type="button" class="btn btn-outline-primary">Отправить</button>
         </div>
     </div>
 @endsection
 
-@push('js')
-    <script src="{{ asset('js/sendComment.js') }}"></script>
-@endpush
+{{--@push('js')--}}
+{{--    <script src="{{ asset('js/sendComment.js') }}"></script>--}}
+{{--@endpush--}}

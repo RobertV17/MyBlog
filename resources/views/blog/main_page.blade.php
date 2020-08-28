@@ -15,5 +15,9 @@
         </div>
     @endforeach
 
-{{ $articles->links() }}
+    <div class="d-flex"  id="downPager">
+        <div class="mx-auto">
+            {{ $articles->links() }}
+        </div>
+    </div>
 @endsection

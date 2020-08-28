@@ -94,6 +94,7 @@ h1 {
 #authorAva {
     display: block;
     border-radius: 5px;
+    border: #5c6971 solid 2px;
     float: left;
     margin: 0 15px 15px 0;
     width: 250px;
@@ -260,4 +261,8 @@ h1 {
 
 #noCommentsAlert {
     margin: 20px;
+}
+
+#downPager {
+    margin-top: 30px;
 }

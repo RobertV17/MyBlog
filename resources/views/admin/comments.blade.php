@@ -17,7 +17,7 @@
             </div></p>
         @endif
 
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="commentsTable">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ID</th>
@@ -44,5 +44,9 @@
             </tbody>
         </table>
 
-        {{ $comments->links()}}
+        <div class="d-flex">
+            <div class="mx-auto">
+                {{ $comments->links()}}
+            </div>
+        </div>
 @endsection

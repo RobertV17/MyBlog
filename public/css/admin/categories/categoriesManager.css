@@ -1,4 +1,13 @@
+#catsTable thead th:nth-child(3),th:nth-child(1) {
+    width: 80px;
+}
+
+#mainContent h1 {
+    margin-bottom: 0px;
+}
+
 .tools {
+    text-align: right;
     padding: 5px;
 }
 
